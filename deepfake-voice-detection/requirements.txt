@@ -1,63 +1,14 @@
-# -----------------------------
-# Core Python & Utilities
-# -----------------------------
-numpy>=1.23
-scipy>=1.10
-pandas>=2.0
-tqdm>=4.65
-
-# -----------------------------
-# Deep Learning Framework
-# -----------------------------
-torch>=2.0
-torchaudio>=2.0
-
-# -----------------------------
-# Audio Processing
-# -----------------------------
-librosa>=0.10
-soundfile>=0.12
-sounddevice>=0.4.6
-pyaudio>=0.2.13
-
-# -----------------------------
-# Feature Extraction & ML
-# -----------------------------
-scikit-learn>=1.3
-matplotlib>=3.7
-
-# -----------------------------
-# Anti-Spoofing / Speech Models
-# -----------------------------
-speechbrain>=0.5.16
-
-# -----------------------------
-# Real-Time & Streaming
-# -----------------------------
-fastapi>=0.110
-uvicorn>=0.27
-websockets>=12.0
-websocket-client>=1.7
-
-# -----------------------------
-# VoIP / Streaming Simulation
-# -----------------------------
-aiortc>=1.6.0
-
-# -----------------------------
-# Jupyter & Experiments
-# -----------------------------
-jupyter>=1.0
-notebook>=7.0
-ipykernel>=6.29
-
-# -----------------------------
-# Model Export & Deployment
-# -----------------------------
-onnx>=1.15
-onnxruntime>=1.17
-
-# -----------------------------
-# Optional (Debugging / Profiling)
-# -----------------------------
-psutil>=5.9
+fastapi
+uvicorn
+websockets
+torch
+torchaudio
+numpy
+scipy
+librosa
+soundfile
+pyaudio
+webrtcvad-wheels
+python-multipart
+scikit-learn
+requests
