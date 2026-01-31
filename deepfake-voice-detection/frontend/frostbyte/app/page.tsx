@@ -1,9 +1,38 @@
+"use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { authService } from "@/lib/auth";
+import AuthForm from "@/components/AuthForm";
 import { HeroSection } from "@/components/hero-section";
 import LiveCallStreamer from "@/components/LiveCallStreamer";
 import { DetectionTimeline } from "@/components/detection-timeline";
 import { SystemStrengths } from "@/components/system-strengths";
+import Link from "next/link";
 
 export default function Home() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showAuth, setShowAuth] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (authService.isAuthenticated()) {
+      setIsAuthenticated(true);
+    } else {
+      setShowAuth(true);
+    }
+  }, []);
+
+  const handleAuthSuccess = () => {
+    setIsAuthenticated(true);
+    setShowAuth(false);
+    // Optionally redirect to webrtc page
+    // router.push("/webrtc");
+  };
+
+  if (showAuth && !isAuthenticated) {
+    return <AuthForm onAuthSuccess={handleAuthSuccess} />;
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <HeroSection />
@@ -19,6 +48,16 @@ export default function Home() {
             <p className="mt-4 text-lg text-gray-400">
               Test the system in real-time. Start the simulation and speak into your microphone.
             </p>
+            {isAuthenticated && (
+              <div className="mt-6">
+                <Link
+                  href="/webrtc"
+                  className="inline-block px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg transition-colors"
+                >
+                  Go to WebRTC Calling →
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* THE WORKING COMPONENT IS HERE */}
