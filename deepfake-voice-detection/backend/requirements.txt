@@ -7,7 +7,7 @@ numpy
 scipy
 librosa
 soundfile
-pyaudio
+soundfile
 webrtcvad-wheels
 python-multipart
 scikit-learn

@@ -10,17 +10,24 @@ app = FastAPI()
 
 # --- 1. THE SECURITY FIX ---
 # Instead of "*", we list the exact ports your frontend might use.
+# --- 1. CORS SECURITY ---
+# Allow all origins for Hackathon ease, or specifically configured ones
+import os
+
 origins = [
-    "http://localhost:3000",    # Next.js
-    "http://127.0.0.1:3000",    # Next.js (IP)
-    "http://localhost:5173",    # Vite
-    "http://127.0.0.1:5173",    # Vite (IP)
-    "*"                         # Fallback (Try to allow everything)
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:5173",
+    "*"  # Allow all for hackathon/demo to prevent CORS headaches
 ]
+
+# Add production domains from ENV
+if os.getenv("FRONTEND_URL"):
+    origins.append(os.getenv("FRONTEND_URL"))
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,       # Use the specific list
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
