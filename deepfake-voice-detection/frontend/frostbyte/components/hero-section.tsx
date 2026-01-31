@@ -2,16 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Shield, Activity, PhoneCall } from "lucide-react";
+import { Shield, Activity } from "lucide-react";
 
 export function HeroSection() {
-    const scrollToDetection = () => {
-        const element = document.getElementById("detection-panel");
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
     return (
         <section className="relative w-full min-h-[80vh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-20">
             {/* Background Elements */}
@@ -21,27 +14,15 @@ export function HeroSection() {
             </div>
 
             <div className="container relative z-10 px-4 flex flex-col items-center text-center">
-                <div className="flex flex-col gap-2 items-center mb-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium"
-                    >
-                        <Shield className="w-4 h-4" />
-                        <span>Professional Grade Security</span>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.05 }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-semibold uppercase tracking-wider"
-                    >
-                        <PhoneCall className="w-3 h-3" />
-                        <span>Live Call Detection Supported</span>
-                    </motion.div>
-                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm mb-6 font-medium"
+                >
+                    <Shield className="w-4 h-4" />
+                    <span>Professional Grade Security</span>
+                </motion.div>
 
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
@@ -67,7 +48,7 @@ export function HeroSection() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="flex flex-col sm:flex-row gap-4"
                 >
-                    <Button size="lg" className="text-lg h-14 px-8" onClick={scrollToDetection}>
+                    <Button size="lg" className="text-lg h-14 px-8">
                         <Activity className="mr-2 w-5 h-5" />
                         Start Live Detection
                     </Button>
