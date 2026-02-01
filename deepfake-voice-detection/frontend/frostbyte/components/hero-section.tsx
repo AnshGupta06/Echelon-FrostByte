@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Shield, Activity } from "lucide-react";
+import Link from "next/link";
 
 export function HeroSection() {
     return (
@@ -52,9 +53,11 @@ export function HeroSection() {
                         <Activity className="mr-2 w-5 h-5" />
                         Start Live Detection
                     </Button>
-                    <Button variant="outline" size="lg" className="text-lg h-14 px-8">
-                        View System Architecture
-                    </Button>
+                    <Link href="/architecture">
+                        <Button variant="outline" size="lg" className="text-lg h-14 px-8">
+                            View System Architecture
+                        </Button>
+                    </Link>
                 </motion.div>
             </div>
 
